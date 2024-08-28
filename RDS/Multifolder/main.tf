@@ -10,6 +10,8 @@ terraform {
 
 provider "aws" {
   region = var.region
+  access_key = var.access_key
+  secret_key = var.secret_key
 }
 
 module "vpc" {
@@ -18,7 +20,7 @@ module "vpc" {
 
   name                 = "test"
   cidr                 = "10.0.0.0/16"
-  azs                  = ["us-east-1a","us-east-1b"]
+  azs                  = ["us-west-1a","us-west-1b"]
   public_subnets       = ["10.0.4.0/24", "10.0.5.0/24", "10.0.6.0/24"]
   enable_dns_hostnames = true
   enable_dns_support   = true
@@ -53,7 +55,6 @@ resource "aws_security_group" "rds" {
 
   tags = {
     Name = "test_rds${random_id.id.hex}"
-    deploymentID = var.deploymentID
   }
 }
 
@@ -68,7 +69,7 @@ resource "aws_db_parameter_group" "rds" {
 }
 
 resource "aws_db_instance" "test_db_instance" {
-  identifier             = var.rds_identifier
+  identifier             = "test-cpg-aws-db-instance${random_id.id.hex}"
   instance_class         = "db.t3.micro"
   allocated_storage      = 5
   engine                 = "mysql"
@@ -80,10 +81,6 @@ resource "aws_db_instance" "test_db_instance" {
   parameter_group_name   = aws_db_parameter_group.rds.name
   publicly_accessible    = true
   skip_final_snapshot    = true
-
-  tags = {
-    deploymentID = var.deploymentID
-  }
 }
   
 resource "random_id" "id" {
