@@ -25,6 +25,11 @@ resource "aws_instance" "ec2Instance" {
     network_interface_id = aws_network_interface.nicByTFE.id
     device_index         = 0
   }
+ tags = merge(
+    var.additional_tags,
+    {
+      env = var.env
+    },
 }
 
 variable "access_key" {}
@@ -47,4 +52,8 @@ variable "ami_id2_iac_var" {
 variable "instance_type" {
   type    = string
   default = "t1.micro"
+}
+variable "env" {
+type = string
+default = "test"
 }
