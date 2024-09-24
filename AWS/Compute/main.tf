@@ -53,6 +53,11 @@ variable "instance_type" {
   type    = string
   default = "t1.micro"
 }
+variable "additional_tags" {
+  description = "Additional tags for resources"
+  type        = map(string)
+  default     = {}
+}
 variable "env" {
 type = string
 default = "test"
