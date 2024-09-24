@@ -29,7 +29,9 @@ resource "aws_instance" "ec2Instance" {
     var.additional_tags,
     {
       env = var.env
-    },
+    }
+  )
+
 }
 
 variable "access_key" {}
