@@ -40,12 +40,12 @@ variable "region" {}
 
 
 variable "ami_id" {
-  default = "ami-951945d0"
+  default = "ami-7f418316"
   type    = string
 }
 
 variable "ami_id2_iac_var" {
-  default = "ami-951945d0"
+  default = "ami-7f418316"
   type    = string
 }
 
