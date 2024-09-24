@@ -29,6 +29,7 @@ resource "aws_instance" "ec2Instance" {
     var.additional_tags,
     {
       env = var.env
+      cost_center= var.cost_center
     }
   )
 
@@ -64,3 +65,9 @@ variable "env" {
 type = string
 default = "test"
 }
+variable "cost_center" {
+type = string
+default = "ITOMQE"
+}
+
+
