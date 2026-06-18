@@ -62,3 +62,10 @@ variable "subnet_cidr" {
   type        = string
   default     = "10.0.32.0/24"
 }
+
+default_tags {
+  tags = {
+    owner   = var.owner_name        # Reference from var.tf
+                                   # Can be overridden per environment
+  }
+}
