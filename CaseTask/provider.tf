@@ -28,6 +28,8 @@ provider "aws" {
       managed_by = "Terraform"
       environment = var.env
       cost_center = var.cost_center
-    }
+      owner = "DevOps-Team"
   }
 }
+
+    }
