@@ -63,9 +63,8 @@ variable "subnet_cidr" {
   default     = "10.0.32.0/24"
 }
 
-default_tags {
-  tags = {
-    owner   = var.owner_name        # Reference from var.tf
-                                   # Can be overridden per environment
-  }
+variable "owner_name" {              # ← ADD THIS VARIABLE
+  description = "Owner of resources"
+  type        = string
+  default     = "DevOps-Team"
 }
