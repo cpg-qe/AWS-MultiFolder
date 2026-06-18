@@ -1,0 +1,26 @@
+# Copy this file to terraform.tfvars and fill in the actual values
+# NOTE: terraform.tfvars should NOT be committed to version control for sensitive values
+
+# AWS Credentials (required)
+access_key = "YOUR_AWS_ACCESS_KEY"
+secret_key = "YOUR_AWS_SECRET_KEY"
+region     = "us-east-1"
+
+# EC2 Configuration (optional - uses defaults if not provided)
+ami_id        = "ami-7f418316"
+instance_type = "t2.micro"
+
+# Networking (optional - uses defaults if not provided)
+vpc_cidr    = "10.0.0.0/16"
+subnet_cidr = "10.0.32.0/24"
+
+# Environment and Cost Center (optional - uses defaults if not provided)
+env         = "test"
+cost_center = "ITOMQE"
+
+# Additional tags (optional - empty by default)
+additional_tags = {
+  Owner       = "YOUR_NAME"
+  Project     = "YOUR_PROJECT"
+  CreatedBy   = "Terraform"
+}
