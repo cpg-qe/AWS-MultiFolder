@@ -68,3 +68,9 @@ variable "owner_name" {              # ← ADD THIS VARIABLE
   type        = string
   default     = "DevOps-Team"
 }
+
+variable "TeamName" {
+description = "Team Details"
+type  = string
+default = "casetask"
+}
